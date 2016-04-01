@@ -99,6 +99,7 @@ begin
           verificarFalsoPositivo('Microsoft',     vtFileReport.scans.Microsoft.result);
           verificarFalsoPositivo('Panda',         vtFileReport.scans.Panda.result);
           verificarFalsoPositivo('Symantec',      vtFileReport.scans.Symantec.result);
+          verificarFalsoPositivo('AegisLaba',        vtFileReport.scans.AegisLab.result);
         end
       else
         Writeln('FALHA NA VERIFICAÇÃO DO ARQUIVO!');
@@ -118,6 +119,9 @@ begin
   finally
     FreeAndNil(virusTotal);
   end;
+
+  if AnsiUpperCase(ParamStr(2)) =  '/NOHALT' then
+    codExit := 0;
 
   Halt(codExit);
 
