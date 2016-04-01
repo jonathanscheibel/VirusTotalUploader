@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BAB09944-D9F2-458E-ABF3-41DCBD213A6F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VirusTotalUploader.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VirusTotalUploader">
+        <MSBuild Projects="VirusTotalUploader.dproj"/>
+    </Target>
+    <Target Name="VirusTotalUploader:Clean">
+        <MSBuild Projects="VirusTotalUploader.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VirusTotalUploader:Make">
+        <MSBuild Projects="VirusTotalUploader.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VirusTotalUploader"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VirusTotalUploader:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VirusTotalUploader:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
